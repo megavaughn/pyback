@@ -1,0 +1,61 @@
+{ 
+    "ssh" : "/usr/bin/ssh.exe",
+    "rsync" : "/usr/bin/rsync.exe",
+    "smtpserver" : "your.smtp.server.com",
+    "smtpport" : "465",
+    "smtpuser" : "username",
+    "smtppassword" : "123456789",
+    "smtpfrom" : "username",
+    "smtpto" : "perhapsoneofthose@googlegroups.com",
+    "excludes" : [
+        {"exclude" : ".DS_Store"},
+        {"exclude" : "Thumbs.db"},
+        {"exclude" : "Desktop.ini"},
+        {"exclude" : "desktop.ini"},
+        {"exclude" : "ntuser.ini"},
+        {"exclude" : "@eaDir/"},
+        {"exclude" : "@eaDir"},
+        {"exclude" : "*~"},
+        {"exclude" : ".*~"},
+        {"exclude" : "*.o"},
+        {"exclude" : "*.tmp"},
+        {"exclude" : "$RECYCLE.BIN"},
+        {"exclude" : "/NTUSER.DAT*"},
+        {"exclude" : "/ntuser.dat*"},
+        {"exclude" : "/AppData"},
+        {"exclude" : "/Recovery"},
+        {"exclude" : "/System Volume Information"}],
+    "backuptargets" : [
+        {
+            "address" : "your.rsync.server.com",
+            "user" : "rsyncuser",
+            "port" : "22",
+            "key" : "/local/path/to/openssh.key"
+        }],
+    "backupsets" : [
+        {
+            "localdir" : "/local/directory/to/backup/from/",
+            "remotedir" : "remote/directory/to/backup/to",
+            "retention" : "3w",
+            "excludes" : [
+                {"exclude" : "/.ssh"},
+                {"exclude" : "/AppData"},
+                {"exclude" : "/Application Data"},
+                {"exclude" : "/Cookies"},
+                {"exclude" : "/Downloads"},
+                {"exclude" : "/Local Settings"},
+                {"exclude" : "/My Documents"},
+                {"exclude" : "/NetHood"},
+                {"exclude" : "/OneDrive"},
+                {"exclude" : "/PrintHood"},
+                {"exclude" : "/Recent"},
+                {"exclude" : "/Searches"},
+                {"exclude" : "/SendTo"},
+                {"exclude" : "/Start Menu"},
+                {"exclude" : "/Templates"}]
+        },
+        {
+            "localdir" : "/another/local/directory/to/backup/from/",
+            "remotedir" : "another/remote/directory/to/backup/to",
+        }]
+}
