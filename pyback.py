@@ -150,7 +150,9 @@ def main():
             elif 'm' in retentionUnit:
                 retentionMinutes = retentionTime
             else:
-                backupNotifier.add_warning("No Retention Policy Set on Backup Set", "Retention for " + backupsetLocalDir + " defaulting to 12 weeks.")
+                backupNotifier.add_warning("Unknown retention policy set: " + retentionData + ". Retention for " + backupsetLocalDir + " defaulting to 12 weeks.")
+        else:
+                backupNotifier.add_warning("No retention policy given for backup set. Retention for " + backupsetLocalDir + " defaulting to 12 weeks.")
 
         backupSets.append(BackupSet(backupsetLocalDir, backupsetRemoteDir, backupBaseExcludes+backupsetExcludes, retentionMinutes))
         
